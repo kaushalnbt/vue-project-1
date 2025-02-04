@@ -7,44 +7,45 @@
     <!-- <script src="https://cdn.jsdelivr.net/npm/vue@2"></script> -->
     <script src="https://unpkg.com/vue@3.4.9/dist/vue.global.js" defer></script> 
     <script src="app.js" defer></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 </head>
-<body>
-    <nav class="navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">My Vue App</a>
+<body class="bg-gray-100 flex flex-col min-h-screen">
+    <nav class="bg-gray-800 text-white py-4">
+        <div class="container mx-auto text-center">
+            <a class="text-2xl font-bold" href="#">My Vue App</a>
+        </div>
     </nav>
-    <div class="container mt-5">
-        <div id="app" class="text-center">
-            <img v-bind:src="imageUrl" alt="Vue Logo" class="rounded-circle mt-3">
-            <h2>Name: {{ confirmedName }}</h2>
-            <div class="age-section">
-                <p>Age: {{ age }}</p>
-                <button type="button" v-on:click="setAge($event)" class="btn btn-primary" value="1">
+    <div class="container mx-auto flex-grow mt-5">
+        <div id="app" class="bg-white p-8 rounded-lg shadow-lg text-center">
+            <img v-bind:src="imageUrl" alt="Vue Logo" class="rounded-full mx-auto mb-4 w-24 h-24 shadow-md">
+            <h2 class="text-2xl font-bold mb-4">Name: {{ confirmedName }}</h2>
+            <div class="flex items-center justify-center mb-4">
+                <p class="text-lg mr-4">Age: {{ age }}</p>
+                <button type="button" v-on:click="setAge($event)" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition" value="1">
                     <i class="fas fa-plus"></i>
                 </button>
-                <button type="button" v-on:click="reduceAge($event)" class="btn btn-primary" value="1">
+                <button type="button" v-on:click="reduceAge($event)" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-700 transition ml-2" value="1">
                     <i class="fas fa-minus"></i>
                 </button>
             </div>
-            <p>Age after 5 years: {{ calculateAge() }}</p>
-            <p>Random Number: {{ randomNumber() }}</p>
+            <p class="text-lg mb-4">Age after 5 years: {{ calculateAge() }}</p>
+            <p class="text-lg mb-4">Random Number: {{ randomNumber() }}</p>
             <form v-on:submit.prevent="submitForm" class="mt-3">
-                <div class="form-group">
-                    <label for="nameInput">Name:</label>
-                    <div class="input-group">
-                        <input id="nameInput" v-on:input="setName" class="form-control" type="text" placeholder="Enter your name" v-on:keyup.enter="confirmedNameOutput">
-                        <button type="reset" v-on:click="resetInput" class="btn btn-primary">Reset</button>
+                <div class="mb-4">
+                    <label for="nameInput" class="block text-left text-lg font-medium mb-2">Name:</label>
+                    <div class="flex">
+                        <input id="nameInput" v-on:input="setName" class="form-control flex-grow p-2 border border-gray-300 rounded-l-lg" type="text" placeholder="Enter your name" v-on:keyup.enter="confirmedNameOutput">
+                        <button type="reset" v-on:click="resetInput" class="bg-blue-500 text-white px-4 py-2 rounded-r-lg hover:bg-blue-700 transition">Reset</button>
                     </div>
                 </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary mt-3">Submit</button>
+                <div>
+                    <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">Submit</button>
                 </div>
             </form>
         </div>
     </div>
-    <footer class="footer bg-dark text-white text-center py-3 mt-auto">
+    <footer class="bg-gray-800 text-white text-center py-4 mt-auto">
         <p>&copy; 2023 My Vue App</p>
     </footer>
 </body>
