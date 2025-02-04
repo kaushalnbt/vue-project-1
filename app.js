@@ -28,7 +28,10 @@ const app = Vue.createApp({
         },
         confirmedNameOutput() {
             this.confirmedName = this.name;
-        }
+        },
+        resetInput() {
+            this.name = '';
+        },
     }
 });
 
