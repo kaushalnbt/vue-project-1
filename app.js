@@ -21,7 +21,10 @@ const app = Vue.createApp({
         },
         reduceAge(event) {
             this.age -= parseInt(event.target.value);
-        }
+        },
+        submitForm() {
+            alert('Form Submitted');
+        },
     }
 });
 

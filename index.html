@@ -22,9 +22,13 @@
             <p>Random Number: {{ randomNumber() }}</p>
             <img v-bind:src="imageUrl" alt="Vue Logo" class="rounded-circle mt-3" width="100" height="100">
             <br>
-            <button v-on:click="setAge($event)" class="btn btn-primary mt-3" value="1">Add</button>
-            <button v-on:click="reduceAge($event)" class="btn btn-primary mt-3" value="1">Remove</button>
-            <input v-on:input="setName" class="form-control mt-3" type="text" placeholder="Enter your name">
+            <form v-on:submit.prevent="submitForm" class="mt-3">
+                <input v-model="name" class="form-control" type="text" placeholder="Enter your name">
+                <button type="button" v-on:click="setAge($event)" class="btn btn-primary mt-3" value="1">Add</button>
+                <button type="button" v-on:click="reduceAge($event)" class="btn btn-primary mt-3" value="1">Remove</button>
+                <input v-on:input="setName" class="form-control mt-3" type="text" placeholder="Enter your name">
+                <button type="submit" class="btn btn-primary mt-3">Submit</button>
+            </form>
         </div>
     </div>
     <footer class="footer bg-dark text-white text-center py-3 mt-auto">
